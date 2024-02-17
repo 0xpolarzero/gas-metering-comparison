@@ -1,4 +1,4 @@
-# Gas metering comparison
+# Gas measurements comparison
 
 Comparing the way Forge, Tevm, Hardhat and forge-gas-metering will report gas usage against Sepolia testnet transactions.
 
