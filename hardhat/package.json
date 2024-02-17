@@ -1,0 +1,26 @@
+{
+  "name": "hardhat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-toolbox-viem": "^2.0.0",
+    "@nomicfoundation/hardhat-viem": "^1.0.0",
+    "@types/node": ">=16.0.0",
+    "hardhat": "^2.20.1",
+    "hardhat-gas-reporter": "^1.0.8",
+    "ts-node": ">=8.0.0",
+    "typescript": "~5.0.4",
+    "viem": "^1.15.1"
+  },
+  "dependencies": {
+    "solady": "^0.0.168"
+  }
+}
