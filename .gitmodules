@@ -1,0 +1,6 @@
+[submodule "foundry/lib/solady"]
+	path = foundry/lib/solady
+	url = https://github.com/vectorized/solady
+[submodule "foundry/lib/forge-gas-metering"]
+	path = foundry/lib/forge-gas-metering
+	url = https://github.com/emo-eth/forge-gas-metering

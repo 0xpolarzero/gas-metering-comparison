@@ -5,8 +5,10 @@ import {ERC20} from "@solady/tokens/ERC20.sol";
 
 /// @dev An ultra-minimalistic ERC20 token implementation.
 contract MockERC20 is ERC20 {
-    constructor(uint256 _initialAmount) {
-        _mint(msg.sender, _initialAmount);
+    constructor() {}
+
+    function mint(address _to, uint256 _amount) external {
+        _mint(_to, _amount);
     }
 
     /* -------------------------------------------------------------------------- */
