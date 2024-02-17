@@ -20,8 +20,8 @@ contract MockERC20ForgeGasMetering is MainnetMetering, Test {
         mockERC20 = new MockERC20();
     }
 
-    // https://sepolia.etherscan.io/tx/0xb9431149b5f264acde244f36d033a754205328b72cd407c8f0e0a1d2c4337bc6
-    // gas used: 50,739
+    // https://sepolia.etherscan.io/tx/0x886c7e6d86a3a06d0d6c5cba40579551f0bb83c646f0247da9e326a4291183b2
+    // gas used: 67,839
     //
     // Test:
     // gas used: 63,879
@@ -40,8 +40,8 @@ contract MockERC20ForgeGasMetering is MainnetMetering, Test {
         });
     }
 
-    // https://sepolia.etherscan.io/tx/0x749cfcba3b270f0147b18a92d9e9cdd3e56cb204020e53b50f99c01e286d734e
-    // gas used: 51,339
+    // https://sepolia.etherscan.io/tx/0x6a985f8e7556af5cc90c0c9ef4af90d0b031f090732ea4e9c5e77debe056cd39
+    // gas used: 68,439
     //
     // Test:
     // gas used: 64,479

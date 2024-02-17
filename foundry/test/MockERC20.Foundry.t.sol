@@ -20,9 +20,9 @@ contract MockERC20Foundry is Test {
         mockERC20 = new MockERC20();
     }
 
-    // 1/ https://sepolia.etherscan.io/tx/0xb9431149b5f264acde244f36d033a754205328b72cd407c8f0e0a1d2c4337bc6
-    // gas used: 50,739
-    // 2. https://sepolia.etherscan.io/tx/0x98bee7b5a7cf66c3def3377a483c8555cb6d0a88876440dc316bf4af8c55dc63
+    // 1/ https://sepolia.etherscan.io/tx/0x886c7e6d86a3a06d0d6c5cba40579551f0bb83c646f0247da9e326a4291183b2
+    // gas used: 67,839
+    // 2. https://sepolia.etherscan.io/tx/0xa30ca53c4856957f95fdbf4885e0e5001892af742335301125d5ef65df867586
     // gas used: 33,639
     //
     // Test:
@@ -44,9 +44,9 @@ contract MockERC20Foundry is Test {
         }
     }
 
-    // 1. https://sepolia.etherscan.io/tx/0x749cfcba3b270f0147b18a92d9e9cdd3e56cb204020e53b50f99c01e286d734e
-    // gas used: 51,339
-    // 2. https://sepolia.etherscan.io/tx/0x99f9027dc55e870bab3df5084875a29a35a3d151bd549af655613ae1fed8d08f
+    // 1. https://sepolia.etherscan.io/tx/0x6a985f8e7556af5cc90c0c9ef4af90d0b031f090732ea4e9c5e77debe056cd39
+    // gas used: 68,439
+    // 2. https://sepolia.etherscan.io/tx/0x91cc033349873f65cf69e1b967b17ea983eb266a929c044c74ef8de52697f25e
     // gas used: 34,239
     //
     // Test:
