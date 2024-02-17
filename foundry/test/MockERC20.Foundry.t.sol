@@ -14,7 +14,7 @@ import {MockERC20} from "src/MockERC20.sol";
 contract MockERC20Foundry is Test {
     MockERC20 mockERC20;
 
-    uint256 constant TRY_AMOUNT = 10;
+    uint256 constant MINT_ITERATIONS = 10;
 
     function setUp() public {
         mockERC20 = new MockERC20();
@@ -35,7 +35,7 @@ contract MockERC20Foundry is Test {
         address recipient = 0x0000000000000000000000000000000000000001;
         uint256 amount = 0x0000000000000000000000000000000000000000000000000000000000000001;
 
-        for (uint256 i = 0; i < TRY_AMOUNT; i++) {
+        for (uint256 i = 0; i < MINT_ITERATIONS; i++) {
             uint256 gasPre = gasleft();
             mockERC20.mint(recipient, amount);
             uint256 gasPost = gasleft();
@@ -59,7 +59,7 @@ contract MockERC20Foundry is Test {
         address recipient = 0x1111111111111111111111111111111111111111;
         uint256 amount = 0x1111111111111111111111111111111111111111111111111111111111111111;
 
-        for (uint256 i = 0; i < TRY_AMOUNT; i++) {
+        for (uint256 i = 0; i < MINT_ITERATIONS; i++) {
             uint256 gasPre = gasleft();
             mockERC20.mint(recipient, amount);
             uint256 gasPost = gasleft();
