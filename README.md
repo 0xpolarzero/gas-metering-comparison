@@ -2,7 +2,7 @@
 
 Comparing the way Forge, Tevm, Hardhat and forge-gas-metering will report gas usage against Sepolia testnet transactions.
 
-There are two subsequent mint transactions on a newly deployed mock ERC20 contract, for each of the two cases. The first one having a provided call data filled with zero bytes, and the second one having a call data filled with non-zero bytes.
+There are two subsequent mint transactions on a newly deployed mock ERC20 contract, for each of the two scenarios. There are 50 `0` bytes from the transaction's data in the first scenario that are turned into `1` bytes in the second one, which explains the expected 600 gas overhead (`600 = 50 * (16 - 4)`).
 
 The idea is to figure out which of these tools will report different gas usage based on the amount of zero and non-zero bytes that need to be read/written.
 
