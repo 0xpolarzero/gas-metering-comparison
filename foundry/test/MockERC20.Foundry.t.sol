@@ -20,7 +20,7 @@ contract MockERC20Foundry is Test {
         mockERC20 = new MockERC20();
     }
 
-    // 1/ https://sepolia.etherscan.io/tx/0x886c7e6d86a3a06d0d6c5cba40579551f0bb83c646f0247da9e326a4291183b2
+    // 1. https://sepolia.etherscan.io/tx/0x886c7e6d86a3a06d0d6c5cba40579551f0bb83c646f0247da9e326a4291183b2
     // gas used: 67,839
     // 2. https://sepolia.etherscan.io/tx/0xa30ca53c4856957f95fdbf4885e0e5001892af742335301125d5ef65df867586
     // gas used: 33,639
