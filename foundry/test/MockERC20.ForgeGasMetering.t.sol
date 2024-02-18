@@ -65,7 +65,7 @@ contract MockERC20ForgeGasMetering is MainnetMetering, Test {
     // gas used: 33,639
     //
     // Test:
-    // gas used:
+    // gas used: 21,579
     function test_mintManyZeroes_second_forgeGasMetering() public {
         address recipient = 0x0000000000000000000000000000000000000001;
         uint256 amount = 0x0000000000000000000000000000000000000000000000000000000000000001;
@@ -87,7 +87,7 @@ contract MockERC20ForgeGasMetering is MainnetMetering, Test {
     // gas used: 34,239
     //
     // Test:
-    // gas used:
+    // gas used: 22,179
     function test_mintNoZero_second_forgeGasMetering() public {
         address recipient = 0x1111111111111111111111111111111111111111;
         uint256 amount = 0x1111111111111111111111111111111111111111111111111111111111111111;
