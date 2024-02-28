@@ -1,7 +1,5 @@
 import { loadFixture } from '@nomicfoundation/hardhat-toolbox-viem/network-helpers';
 import { viem } from 'hardhat';
-import { Contract } from 'hardhat/internal/hardhat-network/stack-traces/model';
-import { getAddress } from 'viem';
 
 const MINT_ITERATIONS = 2;
 
@@ -12,7 +10,7 @@ describe('MockERC20', function () {
 
     const mintMultipleAndReturnGasUsed = async (
       recipient: `0x${string}`,
-      amount: bigint,
+      amount: bigint
     ): Promise<string[]> => {
       let gasUsed = [];
 
@@ -33,37 +31,37 @@ describe('MockERC20', function () {
   describe('Mint', function () {
     it('Many zero bytes', async function () {
       const { mintMultipleAndReturnGasUsed } = await loadFixture(
-        deployMockERC20Fixture,
+        deployMockERC20Fixture
       );
 
       const gasUsed = await mintMultipleAndReturnGasUsed(
         '0x0000000000000000000000000000000000000001',
         BigInt(
-          '0x0000000000000000000000000000000000000000000000000000000000000001',
-        ),
+          '0x0000000000000000000000000000000000000000000000000000000000000001'
+        )
       );
 
       console.log(
         'Gas used with many zero bytes:\n',
-        gasUsed.map((gas, i) => `Tx ${i + 1}: ${gas}`).join('\n'),
+        gasUsed.map((gas, i) => `Tx ${i + 1}: ${gas}`).join('\n')
       );
     });
 
     it('No zero byte', async function () {
       const { mintMultipleAndReturnGasUsed } = await loadFixture(
-        deployMockERC20Fixture,
+        deployMockERC20Fixture
       );
 
       const gasUsed = await mintMultipleAndReturnGasUsed(
         '0x1111111111111111111111111111111111111111',
         BigInt(
-          '0x1111111111111111111111111111111111111111111111111111111111111111',
-        ),
+          '0x1111111111111111111111111111111111111111111111111111111111111111'
+        )
       );
 
       console.log(
         'Gas used with no zero bytes:\n',
-        gasUsed.map((gas, i) => `Tx ${i + 1}: ${gas}`).join('\n'),
+        gasUsed.map((gas, i) => `Tx ${i + 1}: ${gas}`).join('\n')
       );
     });
   });
