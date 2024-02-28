@@ -17,14 +17,14 @@ The idea is to figure out which of these tools will report different gas usage b
 >
 > `amount = 0x0000000000000000000000000000000000000000000000000000000000000001 | 0x1111111111111111111111111111111111111111111111111111111111111111`
 
-| Medium                   | Zero bytes (1st) | Non-zero bytes (1st) | Zero bytes (2nd) | Non-zero bytes (2nd) | Bytes cost diff included | Exact match |
-| ------------------------ | ---------------- | -------------------- | ---------------- | -------------------- | ------------------------ | ----------- |
-| Reference (Sepolia tx)   | 67,839           | 68,439               | 33,639           | 34,239               | ✅                       | ✅          |
-| Forge (test) `--isolate` | 67,839           | 68,439               | 33,639           | 34,239               | ✅                       | ✅          |
-| Hardhat                  | 67,839           | 68,439               | 33,639           | 34,239               | ✅                       | ✅          |
-| forge-gas-metering       | 63,879           | 64,479               | 21,579           | 22,179               | ✅                       | ❌          |
-| Forge (test)             | 46,495           | 46,495               | 2,695            | 2,695                | ❌                       | ❌          |
-| Tevm                     | 46,495           | 46,495               | 2,695            | 2,695                | ❌                       | ❌          |
+| Medium                 | Zero bytes (1st) | Non-zero bytes (1st) | Zero bytes (2nd) | Non-zero bytes (2nd) | Bytes cost diff included | Exact match |
+| ---------------------- | ---------------- | -------------------- | ---------------- | -------------------- | ------------------------ | ----------- |
+| Reference (Sepolia tx) | 67,839           | 68,439               | 33,639           | 34,239               | ✅                       | ✅          |
+| Forge (isolated)       | 67,839           | 68,439               | 33,639           | 34,239               | ✅                       | ✅          |
+| Hardhat                | 67,839           | 68,439               | 33,639           | 34,239               | ✅                       | ✅          |
+| forge-gas-metering     | 63,879           | 64,479               | 21,579           | 22,179               | ✅                       | ❌          |
+| Forge                  | 46,495           | 46,495               | 2,695            | 2,695                | ❌                       | ❌          |
+| Tevm                   | 46,495           | 46,495               | 2,695            | 2,695                | ❌                       | ❌          |
 
 ## How to reproduce
 
