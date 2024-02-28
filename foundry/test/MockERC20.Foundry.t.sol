@@ -10,6 +10,8 @@ import {MockERC20} from "src/MockERC20.sol";
 /// due to the difference between zero and non-zero bytes in the call data.
 /// However, Forge fails to measure the difference and returns the exact same
 /// gas usage for both tests.
+/// Edit: Forge precisely measures gas costs with `--isolate` flag.
+/// See https://github.com/foundry-rs/foundry/pull/7186
 
 contract MockERC20Foundry is Test {
     MockERC20 mockERC20;
@@ -25,22 +27,18 @@ contract MockERC20Foundry is Test {
     // 2. https://sepolia.etherscan.io/tx/0xa30ca53c4856957f95fdbf4885e0e5001892af742335301125d5ef65df867586
     // gas used: 33,639
     //
-    // Test:
-    // 1.    51,507
-    // 2.    3,201
-    // 3.    3,202
-    // 4-8.  3,198
-    // 9-10. 3,202
+    // Test (old behavior | --isolate):
+    // 1.    51,507 | 67,839
+    // 2.    3,201 | 33,639
+    // 3.    3,202 | 33,639
+    // 4-8.  3,198 | 33,639
+    // 9-10. 3,202 | 33,639
     function test_mintManyZeroes_native() public {
         address recipient = 0x0000000000000000000000000000000000000001;
         uint256 amount = 0x0000000000000000000000000000000000000000000000000000000000000001;
 
         for (uint256 i = 0; i < MINT_ITERATIONS; i++) {
-            uint256 gasPre = gasleft();
             mockERC20.mint(recipient, amount);
-            uint256 gasPost = gasleft();
-
-            console.log("gas used on try %d: %d", i + 1, gasPre - gasPost);
         }
     }
 
@@ -49,22 +47,18 @@ contract MockERC20Foundry is Test {
     // 2. https://sepolia.etherscan.io/tx/0x91cc033349873f65cf69e1b967b17ea983eb266a929c044c74ef8de52697f25e
     // gas used: 34,239
     //
-    // Test:
-    // 1.    51,507
-    // 2.    3,201
-    // 3.    3,202
-    // 4-8.  3,198
-    // 9-10. 3,202
+    // Test (old behavior | --isolate):
+    // 1.    51,507 | 68,439
+    // 2.    3,201 | 34,239
+    // 3.    3,202 | 34,239
+    // 4-8.  3,198 | 34,239
+    // 9-10. 3,202 | 34,239
     function test_mintNoZero_native() public {
         address recipient = 0x1111111111111111111111111111111111111111;
         uint256 amount = 0x1111111111111111111111111111111111111111111111111111111111111111;
 
         for (uint256 i = 0; i < MINT_ITERATIONS; i++) {
-            uint256 gasPre = gasleft();
             mockERC20.mint(recipient, amount);
-            uint256 gasPost = gasleft();
-
-            console.log("gas used on try %d: %d", i + 1, gasPre - gasPost);
         }
     }
 }
