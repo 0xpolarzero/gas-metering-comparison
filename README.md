@@ -17,14 +17,15 @@ The idea is to figure out which of these tools will report different gas usage b
 >
 > `amount = 0x0000000000000000000000000000000000000000000000000000000000000001 | 0x1111111111111111111111111111111111111111111111111111111111111111`
 
-| Medium                 | Zero bytes (1st) | Non-zero bytes (1st) | Zero bytes (2nd) | Non-zero bytes (2nd) | Difference (1st) | Difference (2nd) |
-| ---------------------- | ---------------- | -------------------- | ---------------- | -------------------- | ---------------- | ---------------- |
-| Reference (Sepolia tx) | 67,839           | 68,439               | 33,639           | 34,239               | 600              | 600              |
-| Hardhat                | 68,218           | 68,818               | 34,018           | 34,618               | 600              | 600              |
-| forge-gas-metering     | 63,879           | 64,479               | 21,579           | 22,179               | 600              | 600              |
-| Forge (test)           | 51,507           | 51,507               | 3,201            | 3,201                | 0                | 0                |
-| Forge (script)         | 46,895           | 46,895               | 3,095            | 3,095                | 0                | 0                |
-| Tevm                   | 46,495           | 46,495               | 2,695            | 2,695                | 0                | 0                |
+| Medium                   | Zero bytes (1st) | Non-zero bytes (1st) | Zero bytes (2nd) | Non-zero bytes (2nd) | Bytes cost diff included |
+| ------------------------ | ---------------- | -------------------- | ---------------- | -------------------- | ------------------------ |
+| Reference (Sepolia tx)   | 67,839           | 68,439               | 33,639           | 34,239               | ✅                       |
+| Forge (test) `--isolate` | 67,839           | 68,439               | 33,639           | 34,239               | ✅                       |
+| Hardhat                  | 68,218           | 68,818               | 34,018           | 34,618               | ✅                       |
+| forge-gas-metering       | 63,879           | 64,479               | 21,579           | 22,179               | ✅                       |
+| Forge (test)             | 51,507           | 51,507               | 3,201            | 3,201                | ❌                       |
+| Forge (script)           | 46,895           | 46,895               | 3,095            | 3,095                | ❌                       |
+| Tevm                     | 46,495           | 46,495               | 2,695            | 2,695                | ❌                       |
 
 ## How to reproduce
 
@@ -66,6 +67,10 @@ This will deploy the contract and mint the tokens twice. Which will provide both
   forge script script/DeployAndCall.s.sol:DeployAndCall --rpc-url $RPC_URL_SEPOLIA --broadcast -vvvv --sig "run(address, uint256)" 0x1111111111111111111111111111111111111111 0x1111111111111111111111111111111111111111111111111111111111111111
 ```
 
+### Foundry (Forge)
+
+**In `/foundry`**: run `forge test --mc MockERC20Foundry -vvvv --isolate`.
+
 ### Hardhat
 
 **In `/hardhat`**: run `pnpm hardhat test`.
@@ -73,10 +78,6 @@ This will deploy the contract and mint the tokens twice. Which will provide both
 ### forge-gas-metering
 
 **In `/foundry`**: run `forge test --mc MockERC20ForgeGasMetering -vv`.
-
-### Foundry (Forge)
-
-**In `/foundry`**: run `forge test --mc MockERC20Foundry -vv`.
 
 ### Tevm
 
