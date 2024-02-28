@@ -6,6 +6,7 @@ const MINT_ITERATIONS = 2;
 describe('MockERC20', function () {
   const deployMockERC20Fixture = async () => {
     const mockERC20 = await viem.deployContract('MockERC20', []);
+    console.log(mockERC20);
     const publicClient = await viem.getPublicClient();
 
     const mintMultipleAndReturnGasUsed = async (
