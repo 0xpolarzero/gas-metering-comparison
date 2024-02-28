@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.20;
 
-import {Test, console2 as console} from "forge-std/Test.sol";
+import {Test} from "forge-std/Test.sol";
 
 import {MockERC20} from "src/MockERC20.sol";
 
@@ -16,7 +16,7 @@ import {MockERC20} from "src/MockERC20.sol";
 contract MockERC20Foundry is Test {
     MockERC20 mockERC20;
 
-    uint256 constant MINT_ITERATIONS = 10;
+    uint256 constant MINT_ITERATIONS = 2;
 
     function setUp() public {
         mockERC20 = new MockERC20();
@@ -28,11 +28,8 @@ contract MockERC20Foundry is Test {
     // gas used: 33,639
     //
     // Test (old behavior | --isolate):
-    // 1.    51,507 | 67,839
-    // 2.    3,201 | 33,639
-    // 3.    3,202 | 33,639
-    // 4-8.  3,198 | 33,639
-    // 9-10. 3,202 | 33,639
+    // 1.    46,495 | 67,839
+    // 2.    2,695 | 33,639
     function test_mintManyZeroes_native() public {
         address recipient = 0x0000000000000000000000000000000000000001;
         uint256 amount = 0x0000000000000000000000000000000000000000000000000000000000000001;
@@ -48,11 +45,8 @@ contract MockERC20Foundry is Test {
     // gas used: 34,239
     //
     // Test (old behavior | --isolate):
-    // 1.    51,507 | 68,439
-    // 2.    3,201 | 34,239
-    // 3.    3,202 | 34,239
-    // 4-8.  3,198 | 34,239
-    // 9-10. 3,202 | 34,239
+    // 1.    46,495 | 68,439
+    // 2.    2,695 | 34,239
     function test_mintNoZero_native() public {
         address recipient = 0x1111111111111111111111111111111111111111;
         uint256 amount = 0x1111111111111111111111111111111111111111111111111111111111111111;

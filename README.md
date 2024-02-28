@@ -23,8 +23,7 @@ The idea is to figure out which of these tools will report different gas usage b
 | Forge (test) `--isolate` | 67,839           | 68,439               | 33,639           | 34,239               | ✅                       | ✅          |
 | Hardhat                  | 67,839           | 68,439               | 33,639           | 34,239               | ✅                       | ✅          |
 | forge-gas-metering       | 63,879           | 64,479               | 21,579           | 22,179               | ✅                       | ❌          |
-| Forge (test)             | 51,507           | 51,507               | 3,201            | 3,201                | ❌                       | ❌          |
-| Forge (script)           | 46,895           | 46,895               | 3,095            | 3,095                | ❌                       | ❌          |
+| Forge (test)             | 46,495           | 46,495               | 2,695            | 2,695                | ❌                       | ❌          |
 | Tevm                     | 46,495           | 46,495               | 2,695            | 2,695                | ❌                       | ❌          |
 
 ## How to reproduce
